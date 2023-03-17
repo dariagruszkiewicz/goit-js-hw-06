@@ -30,7 +30,7 @@ button {
 	margin: 10px auto;
 }
 
-.item {
+.items {
 	display: flex;
 	list-style: none;
 }

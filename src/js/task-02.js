@@ -14,5 +14,4 @@ ingredients.forEach(function (el) {
 	item.textContent = el;
 	item.classList.add("item");
 	ulEl.append(item);
-	console.log(item);
 });

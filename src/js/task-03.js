@@ -17,7 +17,7 @@ const images = [
 
 images.forEach(function (el) {
 	const li = document.createElement("li");
-	li.classList.add("item");
+	li.classList.add("items");
 	galeryEl.append(li);
 	const img = document.createElement("img");
 	img.src = el.url;
