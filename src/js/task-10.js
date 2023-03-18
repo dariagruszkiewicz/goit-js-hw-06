@@ -4,28 +4,23 @@ function getRandomHexColor() {
 		.padStart(6, 0)}`;
 }
 
-// Napisz skrypt tworzenia i usuwania kolekcji elementów.Użytkownik wprowadza liczbę elementów do input
-//  i naciska przycisk Utwórz, co rozpoczyna tworzenie się kolekcji.Po naciśnięciu przycisku Usuń,
-//   kolekcja elementów zostaje usunięta.
-
-// <div id="controls">
-//   <input type="number" min="1" max="100" step="1" />
-//   <button type="button" data-create>Create</button>
-//   <button type="button" data-destroy>Destroy</button>
-// </div>
-
-// <div id="boxes"></div>
-
-// Utwórz funkcję createBoxes(amount), która bierze jeden parametr - liczbę.Funkcja tworzy tyle < div >,
-//   ile ukazano w amount i dodaje je do div#boxes.
-
-//     Wymiary pierwszego <div> - 30px na 30px.
-//     Każdy następny element powinien być szerszy i wyższy od poprzedniego o 10px.
-//     Wszystkie elementy powinny mieć losowy kolor tła w formacie NEX.Użyj gotowej funkcji getRandomHexColor
-//     aby otrzymać kolor.
-
-// Utwórz funkcję destroyBoxes(), która usuwa zawartość div#boxes, tym samym usuwając wszystkie utworzone elementy.
-
 const inputEl = document.querySelector('input[type="number"]');
 const btnCreate = document.querySelector("button[data-create]");
 const btnDestroy = document.querySelector("button[data-destroy]");
+const divBoxes = document.getElementById("boxes");
+
+const createBoxes = (amount) => {
+	amount = inputEl.value;
+	const newDiv = document.createElement("div");
+	newDiv.style.width = "30px";
+	newDiv.style.height = "30px";
+	newDiv.style.background = getRandomHexColor();
+	divBoxes.append(newDiv);
+};
+
+const destroyBoxes = () => {
+	divBoxes.remove();
+};
+
+btnCreate.addEventListener("click", createBoxes);
+btnDestroy.addEventListener("click", destroyBoxes);
