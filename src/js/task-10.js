@@ -10,17 +10,22 @@ const btnDestroy = document.querySelector("button[data-destroy]");
 const divBoxes = document.getElementById("boxes");
 
 const createBoxes = (amount) => {
-	amount = inputEl.value;
-	const newDiv = document.createElement("div");
-	newDiv.style.width = "30px";
-	newDiv.style.height = "30px";
-	newDiv.style.background = getRandomHexColor();
-	divBoxes.append(newDiv);
+	const array = [];
+	for (let i = 0; i < amount; i++) {
+		const newDiv = document.createElement("div");
+		newDiv.style.width = 30 + i * 10 + "px";
+		newDiv.style.height = 30 + i * 10 + "px";
+		newDiv.style.background = getRandomHexColor();
+		array.push(newDiv);
+	}
+	return array;
 };
 
-const destroyBoxes = () => {
+btnCreate.addEventListener("click", () => {
+	let boxesToAdd = createBoxes(inputEl.value);
+	divBoxes.append(...boxesToAdd);
+});
+
+btnDestroy.addEventListener("click", () => {
 	divBoxes.remove();
-};
-
-btnCreate.addEventListener("click", createBoxes);
-btnDestroy.addEventListener("click", destroyBoxes);
+});
