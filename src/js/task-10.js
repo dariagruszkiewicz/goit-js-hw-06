@@ -9,9 +9,9 @@ const btnCreate = document.querySelector("button[data-create]");
 const btnDestroy = document.querySelector("button[data-destroy]");
 const divBoxes = document.getElementById("boxes");
 
+let StartSize = 30;
 const createBoxes = (amount) => {
 	const array = [];
-	let StartSize = 30;
 	for (let i = 0; i < amount; i++) {
 		const newDiv = document.createElement("div");
 		newDiv.style.width = StartSize + "px";
