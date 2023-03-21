@@ -11,10 +11,12 @@ const divBoxes = document.getElementById("boxes");
 
 const createBoxes = (amount) => {
 	const array = [];
+	let StartSize = 30;
 	for (let i = 0; i < amount; i++) {
 		const newDiv = document.createElement("div");
-		newDiv.style.width = 30 + i * 10 + "px";
-		newDiv.style.height = 30 + i * 10 + "px";
+		newDiv.style.width = StartSize + "px";
+		newDiv.style.height = StartSize + "px";
+		StartSize += 10;
 		newDiv.style.background = getRandomHexColor();
 		array.push(newDiv);
 	}
